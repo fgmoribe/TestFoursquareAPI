@@ -20,6 +20,7 @@
 		EDDBA5CC16FBA56300A8CF8E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDBA5CA16FBA56300A8CF8E /* MainStoryboard.storyboard */; };
 		EDDBA5CF16FBA56300A8CF8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDBA5CE16FBA56300A8CF8E /* ViewController.m */; };
 		EDDBA5D716FD097400A8CF8E /* TestFoursquareAPIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDBA5D616FD097400A8CF8E /* TestFoursquareAPIViewController.m */; };
+		EDDBA5D91702228A00A8CF8E /* foursquare.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDDBA5D81702228A00A8CF8E /* foursquare.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		EDDBA5CE16FBA56300A8CF8E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EDDBA5D516FD097400A8CF8E /* TestFoursquareAPIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFoursquareAPIViewController.h; sourceTree = "<group>"; };
 		EDDBA5D616FD097400A8CF8E /* TestFoursquareAPIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFoursquareAPIViewController.m; sourceTree = "<group>"; };
+		EDDBA5D81702228A00A8CF8E /* foursquare.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = foursquare.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		EDDBA5B916FBA56300A8CF8E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EDDBA5D81702228A00A8CF8E /* foursquare.plist */,
 				EDDBA5BA16FBA56300A8CF8E /* TestFoursquareAPI-Info.plist */,
 				EDDBA5BB16FBA56300A8CF8E /* InfoPlist.strings */,
 				EDDBA5BE16FBA56300A8CF8E /* main.m */,
@@ -172,6 +175,7 @@
 				EDDBA5C716FBA56300A8CF8E /* Default@2x.png in Resources */,
 				EDDBA5C916FBA56300A8CF8E /* Default-568h@2x.png in Resources */,
 				EDDBA5CC16FBA56300A8CF8E /* MainStoryboard.storyboard in Resources */,
+				EDDBA5D91702228A00A8CF8E /* foursquare.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
