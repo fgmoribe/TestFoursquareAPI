@@ -18,6 +18,7 @@
 		EDDBA5C916FBA56300A8CF8E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDDBA5C816FBA56300A8CF8E /* Default-568h@2x.png */; };
 		EDDBA5CC16FBA56300A8CF8E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDBA5CA16FBA56300A8CF8E /* MainStoryboard.storyboard */; };
 		EDDBA5CF16FBA56300A8CF8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDBA5CE16FBA56300A8CF8E /* ViewController.m */; };
+		EDDBA5D716FD097400A8CF8E /* TestFoursquareAPIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDBA5D616FD097400A8CF8E /* TestFoursquareAPIViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		EDDBA5CB16FBA56300A8CF8E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		EDDBA5CD16FBA56300A8CF8E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		EDDBA5CE16FBA56300A8CF8E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EDDBA5D516FD097400A8CF8E /* TestFoursquareAPIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFoursquareAPIViewController.h; sourceTree = "<group>"; };
+		EDDBA5D616FD097400A8CF8E /* TestFoursquareAPIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFoursquareAPIViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				EDDBA5C116FBA56300A8CF8E /* AppDelegate.h */,
 				EDDBA5C216FBA56300A8CF8E /* AppDelegate.m */,
 				EDDBA5CA16FBA56300A8CF8E /* MainStoryboard.storyboard */,
+				EDDBA5D516FD097400A8CF8E /* TestFoursquareAPIViewController.h */,
+				EDDBA5D616FD097400A8CF8E /* TestFoursquareAPIViewController.m */,
 				EDDBA5CD16FBA56300A8CF8E /* ViewController.h */,
 				EDDBA5CE16FBA56300A8CF8E /* ViewController.m */,
 				EDDBA5B916FBA56300A8CF8E /* Supporting Files */,
@@ -176,6 +181,7 @@
 				EDDBA5BF16FBA56300A8CF8E /* main.m in Sources */,
 				EDDBA5C316FBA56300A8CF8E /* AppDelegate.m in Sources */,
 				EDDBA5CF16FBA56300A8CF8E /* ViewController.m in Sources */,
+				EDDBA5D716FD097400A8CF8E /* TestFoursquareAPIViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
