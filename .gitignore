@@ -16,4 +16,6 @@ DerivedData
 .idea/
 *.hmap
 */foursquare.plist
-xcuserdata/*
+*/xcuserdata/*
+*xcuserdata/*
+*xcuserdata*
