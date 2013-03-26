@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface TestFoursquareAPIViewController : UITableViewController
+@interface TestFoursquareAPIViewController : UITableViewController <CLLocationManagerDelegate>
 
 @end

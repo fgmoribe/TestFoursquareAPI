@@ -8,9 +8,20 @@
 
 #import "TestFoursquareAPIViewController.h"
 
+
+NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?client_id=SEDBWDIPQJY40R35FSUYJL4YWJPI4HA3HH2MFVXL5BYI1RNB&client_secret=Y542KRGNX1GZ1HRSLEGACJICRGNJHDH5UAEKCGHBP4WGOH4Z";
+
+
+
 @interface TestFoursquareAPIViewController ()
 
+@property (strong) CLLocationManager *cllManager;
+
 @end
+
+
+
+
 
 @implementation TestFoursquareAPIViewController
 
@@ -27,6 +38,12 @@
 {
     [super viewDidLoad];
 
+    self.cllManager = [[CLLocationManager alloc] init];
+    self.cllManager.delegate = self;
+    
+    //Start get the user location
+    [self startFindLocation];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -39,6 +56,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+-(void)startFindLocation
+{
+    [self.cllManager startUpdatingLocation];
+}
+
+
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    [self.cllManager stopUpdatingLocation];
+    CLLocation *actualLocation = [locations lastObject];
+    
+    NSLog(@"latitude: %f", actualLocation.coordinate.latitude);
+    NSLog(@"longitude: %f", actualLocation.coordinate.longitude);
+    // chama execução da pesquisa pela localização
+    
+}
+
+
 
 #pragma mark - Table view data source
 
