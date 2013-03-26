@@ -9,12 +9,14 @@
 #import "TestFoursquareAPIViewController.h"
 
 
-NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?client_id=SEDBWDIPQJY40R35FSUYJL4YWJPI4HA3HH2MFVXL5BYI1RNB&client_secret=Y542KRGNX1GZ1HRSLEGACJICRGNJHDH5UAEKCGHBP4WGOH4Z";
+NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
 
 
 
 @interface TestFoursquareAPIViewController ()
 
+@property (strong) NSString *client_id;
+@property (strong) NSString *client_secret;
 @property (strong) CLLocationManager *cllManager;
 
 @end
@@ -37,6 +39,8 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?cl
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self readFoursquareClientAndSecret];
 
     self.cllManager = [[CLLocationManager alloc] init];
     self.cllManager.delegate = self;
@@ -51,12 +55,21 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?cl
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+
+-(void)readFoursquareClientAndSecret {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"foursquare" ofType:@"plist"];
+    NSDictionary *dictionary = [[NSMutableDictionary alloc]initWithContentsOfFile:path];
+    self.client_id = [dictionary objectForKey:@"client_id"];
+    self.client_secret =[dictionary objectForKey:@"client_secret"];
+}
 
 
 
