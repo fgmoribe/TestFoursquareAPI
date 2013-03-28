@@ -48,6 +48,10 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
     //Start get the user location
     [self startFindLocation];
     
+    
+
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -85,12 +89,40 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
     [self.cllManager stopUpdatingLocation];
     CLLocation *actualLocation = [locations lastObject];
     
-    NSLog(@"latitude: %f", actualLocation.coordinate.latitude);
-    NSLog(@"longitude: %f", actualLocation.coordinate.longitude);
-    // chama execução da pesquisa pela localização
+    
+    [self refreshByLocation:actualLocation];
     
 }
 
+
+
+-(void)refreshByLocation:(CLLocation *)location
+{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyyMMdd"];
+    
+    NSMutableString *foursquareURL = [BaseURLString mutableCopy];
+    [foursquareURL appendString:@"client_id="];
+    [foursquareURL appendString:self.client_id];
+    [foursquareURL appendString:@"&client_secret="];
+    [foursquareURL appendString:self.client_secret];
+    [foursquareURL appendString:@"&limit=50&intent=browse&radius=800&ll="];
+    [foursquareURL appendString:[[NSNumber numberWithDouble:location.coordinate.latitude] stringValue]];
+    [foursquareURL appendString:@","];
+    [foursquareURL appendString:[[NSNumber numberWithDouble:location.coordinate.longitude] stringValue]];
+    [foursquareURL appendString:@"&v="];
+    [foursquareURL appendString:[dateFormat stringFromDate:date]];
+    
+    //NSLog(@"URL: %@", foursquareURL);
+    
+    
+    //NSURL *url = [NSURL URLWithString:foursquareURL];
+    //NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    
+    
+}
 
 
 #pragma mark - Table view data source
