@@ -14,16 +14,8 @@
 
 -(NSArray *)closestVenues
 {
- 
-    NSLog(@"=================== CHAMADA DE CLOSESTVENUES===================");
-    NSDictionary *meta = [self objectForKey:@"meta"];
-    NSString *code = [meta objectForKey:@"code"];
-    NSLog(@"code: %@", code);
-          
-          
     NSDictionary *dictResponse = [self objectForKey:@"response"];
     return [dictResponse objectForKey:@"venues"];
-    
 }
 
 

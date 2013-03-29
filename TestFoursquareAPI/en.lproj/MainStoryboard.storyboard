@@ -29,7 +29,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="uBZ-7k-J1M">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Qkn-uX-RuF"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Qkn-uX-RuF">
+                            <connections>
+                                <action selector="refreshButton:" destination="8bZ-4l-Jmk" id="Dke-kc-miF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvF-QN-UGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -55,11 +59,6 @@
             <point key="canvasLocation" x="373" y="78"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="TestFoursquareAPIViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TestFoursquareAPIViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

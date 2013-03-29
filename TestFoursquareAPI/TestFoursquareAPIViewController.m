@@ -109,6 +109,7 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
     [title appendString:[[NSNumber numberWithDouble:location.coordinate.longitude] stringValue]];
     
     
+    
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyyMMdd"];
@@ -126,7 +127,7 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
     [foursquareURL appendString:@"&v="];
     [foursquareURL appendString:[dateFormat stringFromDate:date]];
     
-    NSLog(@"URL: %@", foursquareURL);
+    //NSLog(@"URL: %@", foursquareURL);
     
     
     NSURL *url = [NSURL URLWithString:foursquareURL];
@@ -142,7 +143,7 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
                                                         [self.tableView reloadData];
                                                         
                                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Foursquare API"
                                                                                                      message:[NSString stringWithFormat:@"%@",error]
                                                                                                     delegate:nil
                                                                                            cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -152,8 +153,25 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
     
     
     [operation start];
+    
+    //Call to stop updating location, if needed, the user tap in the refresh button
+    [self.cllManager stopUpdatingLocation];
 
 }
+
+
+
+
+- (IBAction)refreshButton:(id)sender {
+    //Find again the user location and refresh the tableview
+    [self startFindLocation];
+}
+
+
+
+
+
+
 
 
 #pragma mark - Table view data source
