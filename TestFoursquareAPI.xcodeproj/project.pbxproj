@@ -30,6 +30,7 @@
 		EDDC71571704904100E400AE /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDC714C1704904100E400AE /* AFURLConnectionOperation.m */; };
 		EDDC71581704904100E400AE /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDC714E1704904100E400AE /* AFXMLRequestOperation.m */; };
 		EDDC71591704904100E400AE /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDC71501704904100E400AE /* UIImageView+AFNetworking.m */; };
+		EDDC715C1704974D00E400AE /* NSDictionary+venue.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDC715B1704974D00E400AE /* NSDictionary+venue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		EDDC714E1704904100E400AE /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		EDDC714F1704904100E400AE /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		EDDC71501704904100E400AE /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		EDDC715A1704974D00E400AE /* NSDictionary+venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+venue.h"; sourceTree = "<group>"; };
+		EDDC715B1704974D00E400AE /* NSDictionary+venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+venue.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				EDDBA5CD16FBA56300A8CF8E /* ViewController.h */,
 				EDDBA5CE16FBA56300A8CF8E /* ViewController.m */,
 				EDDBA5B916FBA56300A8CF8E /* Supporting Files */,
+				EDDC715A1704974D00E400AE /* NSDictionary+venue.h */,
+				EDDC715B1704974D00E400AE /* NSDictionary+venue.m */,
 			);
 			path = TestFoursquareAPI;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				EDDC71571704904100E400AE /* AFURLConnectionOperation.m in Sources */,
 				EDDC71581704904100E400AE /* AFXMLRequestOperation.m in Sources */,
 				EDDC71591704904100E400AE /* UIImageView+AFNetworking.m in Sources */,
+				EDDC715C1704974D00E400AE /* NSDictionary+venue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

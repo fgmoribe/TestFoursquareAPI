@@ -7,6 +7,8 @@
 //
 
 #import "TestFoursquareAPIViewController.h"
+#import "AFNetworking.h"
+#import "NSDictionary+venue.h"
 
 
 NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
@@ -18,6 +20,8 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
 @property (strong) NSString *client_id;
 @property (strong) NSString *client_secret;
 @property (strong) CLLocationManager *cllManager;
+@property (strong) NSDictionary *venues;
+@property (strong) NSArray *venuesArray;
 
 @end
 
@@ -114,14 +118,33 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
     [foursquareURL appendString:@"&v="];
     [foursquareURL appendString:[dateFormat stringFromDate:date]];
     
-    //NSLog(@"URL: %@", foursquareURL);
+    NSLog(@"URL: %@", foursquareURL);
     
     
-    //NSURL *url = [NSURL URLWithString:foursquareURL];
-    //NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURL *url = [NSURL URLWithString:foursquareURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    
+    AFJSONRequestOperation *operation =
+    [AFJSONRequestOperation JSONRequestOperationWithRequest: request
+                                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                        self.venues  = (NSDictionary *)JSON;
+                                                        self.venuesArray = [self.venues closestVenues];
+                                                        self.title = @"JSON Retrieved";
+                                                        [self.tableView reloadData];
+                                                        
+                                                    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                                                                     message:[NSString stringWithFormat:@"%@",error]
+                                                                                                    delegate:nil
+                                                                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                                        [av show];
+                                                    }];
     
     
     
+    [operation start];
+
 }
 
 
@@ -129,16 +152,14 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.venuesArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -147,6 +168,9 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    cell.textLabel.text = [[self.venuesArray objectAtIndex:indexPath.row] venueDescription];
+    
     
     return cell;
 }
