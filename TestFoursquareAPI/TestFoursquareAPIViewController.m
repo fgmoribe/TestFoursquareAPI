@@ -103,12 +103,18 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
 -(void)refreshByLocation:(CLLocation *)location
 {
     
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityView.center = self.view.center;
+    [activityView startAnimating];
+    activityView.color = [UIColor grayColor];
+    [self.view addSubview:activityView];
+    
     NSMutableString *title = [@"At " mutableCopy];
     [title appendString:[[NSNumber numberWithDouble:location.coordinate.latitude] stringValue]];
     [title appendString:@", "];
     [title appendString:[[NSNumber numberWithDouble:location.coordinate.longitude] stringValue]];
     
-    
+    NSLog(@"CHAMANDA: %@", title);
     
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -141,6 +147,7 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
                                                         self.venuesArray = [self.venues closestVenues];
                                                         self.title = title;
                                                         [self.tableView reloadData];
+                                                        [activityView stopAnimating];
                                                         
                                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
                                                         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Foursquare API"
@@ -154,9 +161,9 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
     
     [operation start];
     
+    
     //Call to stop updating location, if needed, the user tap in the refresh button
     [self.cllManager stopUpdatingLocation];
-
 }
 
 
