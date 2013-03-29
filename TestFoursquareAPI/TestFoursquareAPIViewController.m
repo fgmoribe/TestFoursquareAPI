@@ -102,9 +102,17 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
 
 -(void)refreshByLocation:(CLLocation *)location
 {
+    
+    NSMutableString *title = [@"At " mutableCopy];
+    [title appendString:[[NSNumber numberWithDouble:location.coordinate.latitude] stringValue]];
+    [title appendString:@", "];
+    [title appendString:[[NSNumber numberWithDouble:location.coordinate.longitude] stringValue]];
+    
+    
     NSDate *date = [NSDate date];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyyMMdd"];
+    
     
     NSMutableString *foursquareURL = [BaseURLString mutableCopy];
     [foursquareURL appendString:@"client_id="];
@@ -130,7 +138,7 @@ NSString *const BaseURLString = @"https://api.foursquare.com/v2/venues/search?";
                                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                         self.venues  = (NSDictionary *)JSON;
                                                         self.venuesArray = [self.venues closestVenues];
-                                                        self.title = @"JSON Retrieved";
+                                                        self.title = title;
                                                         [self.tableView reloadData];
                                                         
                                                     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
